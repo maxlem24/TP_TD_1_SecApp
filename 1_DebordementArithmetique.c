@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdint.h>
 
 int main(void)
 {
@@ -47,6 +48,22 @@ int main(void)
   else
     puts("-> pas de débordement! (Erreur) \n");
 
+  printf("En utilisant les types de <stdint.h>\n");
+
+  int8_t c2,c3;
+  printf("Exemple c2 = 127 et c3 = c2 + 1\n");
+  c2 = 127;
+  c3 = c2 + 1;
+
+  printf("variable  c2  | %lu octet(s) : char [%c]==[%hhd]\n", sizeof(c2), c2, c2);
+  printf("variable  c3 | %lu octet(s) : char [%c]==[%hhd] ", sizeof(c3), c3, c3);
+  if (c3 < c2)
+    puts("-> débordement!\n");
+  else
+    puts("-> pas de débordement!\n");
+
+
+
   printf("Correction des erreurs \n");
   short result;
 
@@ -58,7 +75,12 @@ int main(void)
   scanf("%hhd",&add);
 
   result = (short)c + (short)add;
-  printf("Resultat : %d\n",result);
+
+  if ((result < -128) || (result > 127))
+    puts("-> débordement!\n");
+  else
+   puts("-> pas de débordement!\n");
+
 
   printf("variable c      | %lu octet(s) : [%hhd]\n", sizeof(c),  c);
   printf("variable add    | %lu octet(s) : [%hhd]\n", sizeof(add), add);
@@ -73,7 +95,12 @@ int main(void)
   scanf("%hhd",&sub);
 
   result = (short)c - (short)sub;
-  printf("Resultat : %d\n",result);
+
+  if ((result < -128) || (result > 127))
+    puts("-> débordement!\n");
+  else
+   puts("-> pas de débordement!\n");
+
 
   printf("variable c      | %lu octet(s) : [%hhd]\n", sizeof(c),  c);
   printf("variable sub    | %lu octet(s) : [%hhd]\n", sizeof(sub), sub);
@@ -87,7 +114,12 @@ int main(void)
   scanf("%hhd",&mul);
 
   result = (short)c * (short)mul;
-  printf("Resultat : %d\n",result);
+
+  if ((result < -128) || (result > 127))
+    puts("-> débordement!\n");
+  else
+   puts("-> pas de débordement!\n");
+
 
   printf("variable c      | %lu octet(s) : [%hhd]\n", sizeof(c),  c);
   printf("variable mul    | %lu octet(s) : [%hhd]\n", sizeof(mul), mul);
