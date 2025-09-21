@@ -60,7 +60,7 @@ int main(void)
   //! est ce que à partir de ce groupe là on peut modifier un autre groupe (ex : procédure_inutile ?)
   char buffer2[10]; // Buffer de 10 caractères
   char chaine4[] = "Ceci est la chaine  4";
-  char chaine5[] = "Ceci est la chaine  5";
+  char const chaine5[] = "Ceci est la chaine  5";
   char chaine6[] = "Ceci est la chaine  6";
   char *pointeur2 = &(chaine5[0]);
 
